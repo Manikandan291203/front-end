@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <style>
+        .jegan{
+            text-align: center;
+            font-size: 40px;
+            position: absolute;
+            top: 3%;
+            left: 29%;
+        }
+        .f1 {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15%;
+        }
+
+        .f2 {
+            border-radius: 1px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(125, 16, 193, 0.2);
+            height: 100%;
+            width: 50%;
+        }
+
+        .br {
+            height: 60px;
+            width: 100%;
+            text-align: right;
+            color: rgb(55, 17, 95);
+            font-size: 2em;
+            border: 1px solid black;
+            box-sizing: border-box;
+            padding: 0;
+            box-shadow: 0 0 10px rgba(125, 16, 193, 0.2);
+        }
+        #br{
+            background-color:rgb(210, 226, 231);
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .btn {
+            width: 100%;
+            height: 50px;
+            border: 2px solid black;
+            font-size: 1.5em;
+            cursor: pointer;
+            background-color:rgb(210, 226, 231);
+            color: rgb(18, 10, 10);
+        }
+        .bt {
+            width: 100%;
+            height: 50px;
+            border: 2px solid black;
+            font-size: 1.5em;
+            cursor: pointer;
+            background-color: rgb(167, 216, 231);
+            color: rgb(10, 18, 12);
+        }
+        .btn:active{
+            background-color: rgb(190, 213, 220);
+        }
+        .btn:hover{
+            background-color: rgb(232, 227, 227);
+        }
+        .bt:active{
+            background-color: rgb(203, 191, 191);
+        }
+        .bt:hover{
+            background-color:rgb(128, 216, 243);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="jegan">
+        <h1>CALCULATOR</h1>
+    </div>
+    <div class="f1">
+        <div class="f2">
+            <input type="text" id="br" class="br" disabled placeholder="Ans=" style="text-align-last: left;">
+
+            <div class="buttons">
+                <button class="bt" onclick="cleardisplay()">C</button>
+                <button class="bt" onclick="appendtodisplay('(')">(</button>
+                <button class="bt" onclick="appendtodisplay(')')">)</button>
+                <button class="bt" onclick="appendtodisplay('%')">%</button>
+                
+
+                <button class="btn" onclick="appendtodisplay('7')">7</button>
+                <button class="btn" onclick="appendtodisplay('8')">8</button>
+                <button class="btn" onclick="appendtodisplay('9')">9</button>
+                <button class="bt" onclick="appendtodisplay('/')">/</button>
+                
+
+                <button class="btn" onclick="appendtodisplay('4')">4</button>
+                <button class="btn" onclick="appendtodisplay('5')">5</button>
+                <button class="btn" onclick="appendtodisplay('6')">6</button>
+                <button class="bt" onclick="appendtodisplay('*')">*</button>
+                
+
+                <button class="btn" onclick="appendtodisplay('1')">1</button>
+                <button class="btn" onclick="appendtodisplay('2')">2</button>
+                <button class="btn" onclick="appendtodisplay('3')">3</button>
+                 <button class="bt" onclick="appendtodisplay('-')">-</button>
+                
+
+                <button class="btn" onclick="appendtodisplay('0')">0</button>
+                <button class="btn" onclick="appendtodisplay('.')">.</button>
+                <button class="btn" onclick="calculateresult()">=</button>
+                <button class="bt" onclick="appendtodisplay('+')">+</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function appendtodisplay(value) {
+            document.getElementById('br').value += value;
+        }
+
+        function cleardisplay() {
+            document.getElementById('br').value = '';
+        }
+
+        function calculateresult() {
+            try {
+                let result = eval(document.getElementById('br').value);
+                document.getElementById('br').value = result;
+            } catch (e) {
+                document.getElementById('br').value = 'Error';
+            }
+        }
+    </script>
+</body>
+
+</html>
